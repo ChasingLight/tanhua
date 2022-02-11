@@ -1,0 +1,59 @@
+#服务端口
+server:
+  port: 18083
+spring:
+  application:
+    name: tanhua-admin
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/tanhua-admin?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 123456
+  rabbitmq:
+    host: 192.168.136.160
+    port: 5672
+    username: guest
+    password: guest
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+  cloud:  #nacos配置
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+dubbo:    #dubbo配置
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    check: false
+    retries: 0   #dubbo.consumer.retries=0 服务消费者重试次数0
+  protocol:
+    port: 20883
+    name: dubbo
+tanhua:
+  sms:
+    signName: 物流云商
+    templateCode: SMS_106590012
+    accessKey: LTAI4GKgob9vZ53k2SZdyAC7
+    secret: LHLBvXmILRoyw0niRSBuXBZewQ30la
+  oss:
+    accessKey: LTAI5tGeXtba84DP429gTT4P
+    secret: qpjNlMfGiII7iMnjXHUTUtza7PvlYU
+    endpoint: oss-cn-beijing.aliyuncs.com
+    bucketName: tanhua-zrm
+    url: https://tanhua-zrm.oss-cn-beijing.aliyuncs.com/
+  aip:
+    appId: 25493537
+    apiKey: 1QFR1TeN14FpipU3xzLbRuM9
+    secretKey: UZohgtYLHCTENTYrc0nNN2Wm1RgTg91c
+
+#mybaits-plus
+mybatis-plus:
+  #可以将mybatis-plus的执行sql语句，打印到控制台上，方便debug
+  #  configuration:
+  #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      table-prefix: tb_    #数据库表前缀
+      id-type: auto        #数据库表主键的策略

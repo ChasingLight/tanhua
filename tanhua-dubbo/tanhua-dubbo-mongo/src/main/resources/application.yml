@@ -1,0 +1,32 @@
+server:
+  port: 18082
+spring:
+  application:
+    # 服务名称
+    name: tanhua-dubbo-mongo
+  cloud:
+    nacos:
+      discovery:
+        # 注册中心地址
+        server-addr: 127.0.0.1:8848
+  data:
+    mongodb:
+      # 连接的mongodb的信息
+      uri: mongodb://root:123456@127.0.0.1:27017/tanhua?authSource=admin&authMechanism=SCRAM-SHA-1
+#      host: 127.0.0.1
+#      port: 27017
+#      database: tanhua
+#      username: root
+#      password: 123456
+
+dubbo:
+  protocol:
+    name: dubbo  # 对外暴露的协议
+    port: 20882  # 对外暴露的端口
+  registry:
+    # 使用spring-cloud的注册中心
+    address: spring-cloud://localhost
+  scan:
+    base-packages: com.tanhua.dubbo.api  #dubbo中包扫描
+  consumer:
+    retries: 0
