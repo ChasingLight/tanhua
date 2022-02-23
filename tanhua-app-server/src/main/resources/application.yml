@@ -8,11 +8,15 @@ spring:
     port: 6379
     host: 127.0.0.1
     password: 123456
-  cloud:  #nacos配置
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8090
+      web-context-unify: true   #关闭web-context整合
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
-dubbo:    #dubbo配置
+dubbo:
   registry:
     address: spring-cloud://localhost
   consumer:

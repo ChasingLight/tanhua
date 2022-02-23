@@ -29,6 +29,7 @@ public class TodayBestService {
      * 根据当前登录用户id，查询最大缘分值的 用户信息
      * @return
      */
+    //@SentinelResource("todayBest")
     public TodayBest todayBest(){
 
         //获取当前登录用户id
